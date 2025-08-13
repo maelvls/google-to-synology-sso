@@ -1,0 +1,13 @@
+name: Weekly govulncheck
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Sunday 00:00 UTC
+  workflow_dispatch: # manual trigger
+
+jobs:
+  govulncheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: golang/govulncheck-action@v1
